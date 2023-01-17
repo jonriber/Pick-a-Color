@@ -7,32 +7,33 @@ function App() {
     [color, setColor] = useState<string>("blue"),
     [awnser, setAwnser] = useState<string[]>([]),
     [correctAwnser, setCorrectAwnser] = useState<boolean>(false),
+    [wrongAwnser, setWrongAwnser] = useState<boolean>(false),
     defaultColors = ["Black","Blue","Yellow"],
-    getRandomColor = () => {
-      return colors[Math.floor(Math.random()* colors.length)];
+    getRandomColor = () => colors[Math.floor(Math.random()* colors.length)],
+    pickColor = () => {
+      let actualColor = getRandomColor();
+      setColor(actualColor);
+      setCorrectAwnser(false);
     }
  
   useEffect(() => {
-    let actualColor = getRandomColor()
-    setColor(actualColor.color);
-
-  },[])
+    pickColor()
+  },[]);
 
   const checkAnwser = (colorValue: string) => {
-    console.log("checkAnwser:",color);
     if(colorValue === color){
-      console.log("Correta!")
-      console.log("gerar nova cor!");
-      let newColor = getRandomColor();
-      setColor(newColor.color);
+      setWrongAwnser(false);
+      setCorrectAwnser(true);
+      setTimeout(() => pickColor(),2000);
+      
+    }else{
+      setWrongAwnser(true);
     }
-
   }
 
   return (
     <div className="App">
       <div className='colorBox' style={{background: color}}>
-
       </div>
       <div className='colorOptions'>
         {defaultColors.map((colorValue) => {
@@ -40,7 +41,8 @@ function App() {
         })}
       </div>
       <div className='Awnser'>
-        {!correctAwnser ? <h3>Wrong Awnser!</h3> :<h3> Correct Awnser!</h3>}
+        {correctAwnser && <h3> Correct Awnser!</h3>}
+        {wrongAwnser && <h3> Wrong Awnser!</h3>}
       </div>
     </div>
   )
