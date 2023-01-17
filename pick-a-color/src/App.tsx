@@ -3,16 +3,19 @@ import colors from './data/colors'
 import './App.css'
 
 function App() {
-  const [color, setColor] = useState<string>("blue")
+  const 
+    [color, setColor] = useState<string>("blue"),
+    [awnser, setAwnser] = useState<string[]>([]),
+    defaultColors = ["Black","Blue","Yellow"];
  
   useEffect(() => {
-    let randomColor = colors[Math.floor(Math.random()* colors.length)];
-    setColor(randomColor.color);
+    let actualColor = colors[Math.floor(Math.random()* colors.length)];
+    setColor(actualColor.color);
 
   },[])
 
   const checkAnwser = () => {
-    
+
   }
 
   return (
@@ -21,9 +24,9 @@ function App() {
 
       </div>
       <div className='colorOptions'>
-        <button>option 1</button>
-        <button>option 2</button>
-        <button>option 3</button>
+        {defaultColors.map((color) => {
+          return <button id={color}>{color}</button>
+        })}
       </div>
     </div>
   )
