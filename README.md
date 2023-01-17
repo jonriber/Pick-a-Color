@@ -5,19 +5,18 @@ Practice of React interview challenges.
 ### Install & Usage:
 Enter directory: <br/>
 ```
-cd Pick-a-color
+  cd Pick-a-color
 ```
-<br/>
+
 Install dependencies: <br/>
 ```
-npm install
+  npm install
 ```
-<br/>
+
 Run development mode:<br/>
 ```
-npm run dev
+  npm run dev
 ```
-<br/>
 
 ### Topics
 - [X] React hooks
