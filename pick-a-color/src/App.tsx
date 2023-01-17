@@ -33,6 +33,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className='title'>
+        <h1>Pick a Color Game</h1>
+      </div>
       <div className='colorBox' style={{background: color}}>
       </div>
       <div className='colorOptions'>
@@ -44,6 +47,9 @@ function App() {
         {correctAwnser && <h3> Correct Awnser!</h3>}
         {wrongAwnser && <h3> Wrong Awnser!</h3>}
       </div>
+      <footer className='footer'>
+        <h4>By Jonatas Ribeiro. 2023.</h4>
+      </footer>
     </div>
   )
 }

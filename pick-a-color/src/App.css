@@ -10,21 +10,40 @@
 }
 
 .colorBox{
-  width: 300px;
+  display: flex;
+  /* width: 300px; */
   height: 300px;
-}
+  border-radius: 3px;
+  /* place-items: center; */
+  justify-content: center;
+  }
 
 .colorOptions{
-  width: 100%;
+  width: 350px;
   position: relative;
   top: 30px;
   display: flex;
   flex-direction: row;
-  place-items: center;
+  /* place-items: center; */
+  align-items: center;
+  justify-content: space-around;
 
 }
 
+.colorOptions button{
+  color: white;
+  border-radius: 3px;
+  font-size: 24px;
+}
 .Awnser{
+  /* width: 350px; */
   position: relative;
   top: 30px;
+}
+
+.footer{
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
 }
