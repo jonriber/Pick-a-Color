@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App{
+  max-width: 400px;
+}
+
+.colorBox{
+  width: 300px;
+  height: 300px;
+}
+
+.colorOptions{
+  width: 100%;
+  position: relative;
+  top: 30px;
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+
+}
