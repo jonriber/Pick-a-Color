@@ -4,18 +4,18 @@ import './App.css'
 
 function App() {
   const 
-    [color, setColor] = useState<string>("blue"),
+    [color, setColor] = useState<string>(""),
     [awnser, setAwnser] = useState<string[]>([]),
     [correctAwnser, setCorrectAwnser] = useState<boolean>(false),
     [wrongAwnser, setWrongAwnser] = useState<boolean>(false),
-    defaultColors = ["Black","Blue","Yellow"],
     getRandomColor = () => colors[Math.floor(Math.random()* colors.length)],
     pickColor = () => {
       let actualColor = getRandomColor();
       setColor(actualColor);
       setCorrectAwnser(false);
-    }
- 
+    },
+    defaultColors = [color,getRandomColor(),getRandomColor()].sort(() => 0.5 - Math.random());
+
   useEffect(() => {
     pickColor()
   },[]);
@@ -37,7 +37,7 @@ function App() {
       </div>
       <div className='colorOptions'>
         {defaultColors.map((colorValue) => {
-          return <button id={colorValue} onClick={() => checkAnwser(colorValue)}>{colorValue}</button>
+          return <button disabled={correctAwnser} id={colorValue} onClick={() => checkAnwser(colorValue)}>{colorValue}</button>
         })}
       </div>
       <div className='Awnser'>
