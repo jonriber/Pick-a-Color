@@ -12,11 +12,13 @@ function App() {
     pickColor = () => {
       let actualColor = getRandomColor();
       setColor(actualColor);
+      setAwnser([actualColor,getRandomColor(),getRandomColor()].sort(() => 0.5 - Math.random()));
       setCorrectAwnser(false);
-    },
-    defaultColors = [color,getRandomColor(),getRandomColor()].sort(() => 0.5 - Math.random());
+    };
+    // defaultColors = [color,getRandomColor(),getRandomColor()].sort(() => 0.5 - Math.random());
 
   useEffect(() => {
+    // setColor(getRandomColor())
     pickColor()
   },[]);
 
@@ -39,7 +41,7 @@ function App() {
       <div className='colorBox' style={{background: color}}>
       </div>
       <div className='colorOptions'>
-        {defaultColors.map((colorValue) => {
+        {awnser.map((colorValue) => {
           return <button disabled={correctAwnser} id={colorValue} onClick={() => checkAnwser(colorValue)}>{colorValue}</button>
         })}
       </div>
